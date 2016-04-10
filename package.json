@@ -1,0 +1,19 @@
+{
+  "name": "select-pasted",
+  "main": "./lib/select-pasted",
+  "version": "0.0.1",
+  "description": "Select just pasted text",
+  "keywords": [
+    "select", "paste", "selection"
+  ],
+  "activationCommands": {
+    "atom-workspace": ["select-pasted:paste-with-selected", "select-pasted:select-last-pasted"]
+  },
+  "repository": "https://github.com/ShiningRay/select-pasted",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
