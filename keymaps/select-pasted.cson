@@ -10,4 +10,4 @@
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
 'atom-workspace':
   'alt-cmd-v': 'select-pasted:paste-and-selected'
-  'shift-cmd-v': 'select-pasted:'
+  'shift-cmd-v': 'select-pasted:select-last-pasted'

@@ -1,9 +1,10 @@
 # coffeelint: disable=max_line_length
 # See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+
 'context-menu':
   'atom-text-editor': [
     {
-      'label': 'Select last pasted text'
+      'label': 'Paste with selection'
       'command': 'select-pasted:paste-and-selected'
     }
   ]
@@ -14,8 +15,12 @@
       'label': 'select-pasted'
       'submenu': [
         {
-          'label': 'Select last pasted text'
+          'label': 'Paste with selection'
           'command': 'select-pasted:paste-and-selected'
+        },
+        {
+          'label': "Select last pasted text"
+          "command": 'select-pasted:select-last-pasted'
         }
       ]
     ]

@@ -7,7 +7,8 @@
     "select", "paste", "selection"
   ],
   "activationCommands": {
-    "atom-workspace": ["select-pasted:paste-with-selected", "select-pasted:select-last-pasted"]
+    "atom-workspace": "select-pasted:select-last-pasted",
+    "atom-text-editor": "select-pasted:paste-and-selected"
   },
   "repository": "https://github.com/ShiningRay/select-pasted",
   "license": "MIT",
@@ -15,5 +16,12 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShiningRay/select-pasted.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ShiningRay/select-pasted/issues"
   }
 }

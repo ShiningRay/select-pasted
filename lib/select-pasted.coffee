@@ -13,15 +13,28 @@ module.exports = SelectPasted =
     @subscriptions.add atom.commands.add 'atom-text-editor', 'select-pasted:paste-and-selected', ->
       return unless editor = atom.workspace.getActiveTextEditor()
       editor.pasteText select: true
+      handle = editor.onDidInsertText ({range}) =>
+        @lastRange = range
+        handle.dispose()
+
     @subscriptions.add atom.commands.add 'atom-workspace', 'select-pasted:select-last-pasted': => @selectLastPasted()
 
-    @subscriptions.add atom.workspace.observeTextEditors editor =>
-      console.log editor
-      @subscriptions.add editor.onDidInsertText event =>
-        @lastRange = event.range
-        console.log(@lastRange)
+    # hook paste action
+    @subscriptions.add atom.commands.onWillDispatch (event) =>
+      if event.type == 'core:paste'
+        editor = event.target.workspace.getActiveTextEditor()
+        handle = editor.onDidInsertText ({range}) =>
+          console.log("save range", range)
+          @lastRange = range
+          handle.dispose()
+    #
+    # @subscriptions.add atom.workspace.observeTextEditors (editor) =>
+    #   @subscriptions.add editor.onDidInsertText (event) =>
+    #     @lastRange = event.range
+    #     console.log(event)
 
   deactivate: ->
+    console.log 'SelectPasted was deactivate!'
     @subscriptions.dispose()
 
   serialize: ->
